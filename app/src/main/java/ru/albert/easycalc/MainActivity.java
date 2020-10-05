@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     public static LinkedList<String> actions = new LinkedList();
-    public static String act;
+    public static String act = "";
     TextView text;
 
     @Override
@@ -23,25 +23,27 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonEqual).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(act.equals("*")){
-                    String arr[] = text.getText().toString().split(Pattern.quote("*"));
-                    int tmp = Integer.parseInt(arr[0]) * Integer.parseInt(arr[1]);
-                    text.setText("" + tmp);
-                }
-                if(act.equals("-")){
-                    String arr[] = text.getText().toString().split(Pattern.quote("-"));
-                    int tmp = Integer.parseInt(arr[0]) - Integer.parseInt(arr[1]);
-                    text.setText("" + tmp);
-                }
-                if(act.equals("+")){
-                    String arr[] = text.getText().toString().split(Pattern.quote("+"));
-                    int tmp = Integer.parseInt(arr[0]) + Integer.parseInt(arr[1]);
-                    text.setText("" + tmp);
-                }
-                if(act.equals("/")){
-                    String arr[] = text.getText().toString().split(Pattern.quote("/"));
-                    int tmp = Integer.parseInt(arr[0]) / Integer.parseInt(arr[1]);
-                    text.setText("" + tmp);
+                if(!act.equals("")) {
+                    if(act.equals("*")){
+                        String arr[] = text.getText().toString().split(Pattern.quote("*"));
+                        int tmp = Integer.parseInt(arr[0]) * Integer.parseInt(arr[1]);
+                        text.setText("" + tmp);
+                    }
+                    if(act.equals("-")){
+                        String arr[] = text.getText().toString().split(Pattern.quote("-"));
+                        int tmp = Integer.parseInt(arr[0]) - Integer.parseInt(arr[1]);
+                        text.setText("" + tmp);
+                    }
+                    if(act.equals("+")){
+                        String arr[] = text.getText().toString().split(Pattern.quote("+"));
+                        int tmp = Integer.parseInt(arr[0]) + Integer.parseInt(arr[1]);
+                        text.setText("" + tmp);
+                    }
+                    if(act.equals("/")){
+                        String arr[] = text.getText().toString().split(Pattern.quote("/"));
+                        int tmp = Integer.parseInt(arr[0]) / Integer.parseInt(arr[1]);
+                        text.setText("" + tmp);
+                    }
                 }
             }
         });
